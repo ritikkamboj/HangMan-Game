@@ -10,7 +10,7 @@ body {
   align-items: center;
   margin: 0;
   height: 80vh;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 h1 {
   margin: 20px 0 0;
@@ -31,37 +31,32 @@ h1 {
   display: flex;
   flex-direction: column;
   /* align-items: flex-start; */
-text-align: right;  
-  
+  text-align: right;
 }
-.wrong-letters-container p{
-
-    margin: 0 0 5px;
+.wrong-letters-container p {
+  margin: 0 0 5px;
 }
-.wrong-letters-container span
-{
-    font-size: 24px;
+.wrong-letters-container span {
+  font-size: 24px;
 }
 
-.word
-{
-    display: flex;
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translate(-50%);
+.word {
+  display: flex;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%);
 }
-.letter{
-
-    border-bottom: 3px solid #2980b9;
-    font-size: 30px;
-    /* display: inline-flex;
+.letter {
+  border-bottom: 3px solid #2980b9;
+  font-size: 30px;
+  /* display: inline-flex;
     align-items: center;
     justify-content: center; */
-    margin: 0 3px;
-    height: 50px;
-    width: 20px;
-    line-height: 60px;
+  margin: 0 3px;
+  height: 50px;
+  width: 20px;
+  line-height: 60px;
 }
 /* line{
     fill: none;
@@ -85,4 +80,57 @@ text-align: right;
 }
 .body-part {
   display: none;
+}
+
+.popup-container {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup{
+    background: #29806b;
+    border-radius: 5px;
+    box-shadow: 0 15px 10px 3px rgba(0,0,0,0.1);
+    padding: 20px;
+    text-align: center;
+}
+.popup .play-btn
+{
+    cursor: pointer;
+    margin : 20px 0 0 0;
+    border: 0;
+    background-color: #fff;
+    color: #29806b;
+    padding: 5px 12px;
+    font-weight: bold;
+}
+.popup .play-btn:active
+{
+    transform: scale(0.98);
+}
+.popup .play-btn:focus{
+  outline: 0;
+}
+
+.notification-container
+{
+    background-color: rgba(0,0,0,0.3);
+    position: absolute;
+    border-radius: 10px 10px 0 0 ;
+    padding: 5px 12px;
+    bottom:-70px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.notification-container.show
+{
+    transform: translateY(-70px);
 }
