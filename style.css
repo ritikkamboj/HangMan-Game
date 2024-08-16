@@ -1,6 +1,67 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: blue;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  height: 80vh;
+  /* overflow: hidden; */
+}
+h1 {
+  margin: 20px 0 0;
+}
+.game-container {
+  padding: 20px 30px;
+  position: relative;
+  margin: auto;
+  height: 350px;
+  width: 450px;
+}
+.wrong-letters-container {
+  /* padding: 0; */
+  /* width: 500px; */
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-start; */
+text-align: right;  
+  
+}
+.wrong-letters-container p{
 
-body{
-    background-color: blue;
+    margin: 0 0 5px;
+}
+.wrong-letters-container span
+{
+    font-size: 24px;
+}
+
+.word
+{
+    display: flex;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%);
+}
+.letter{
+
+    border-bottom: 3px solid #2980b9;
+    font-size: 30px;
+    /* display: inline-flex;
+    align-items: center;
+    justify-content: center; */
+    margin: 0 3px;
+    height: 50px;
+    width: 20px;
+    line-height: 60px;
 }
 /* line{
     fill: none;
@@ -10,18 +71,18 @@ body{
     fill: red; */
 /* } */
 /* circle{ */
-    /* fill: none; */
-    /* stroke: #fff; */
-    /* stroke-width: 4; */
+/* fill: none; */
+/* stroke: #fff; */
+/* stroke-width: 4; */
 /* } */
 
-.figure-container{
-    fill: transparent;
-    stroke: #fff;
-    stroke-width: 4;
-    stroke-linecap:round;
+.figure-container {
+  fill: transparent;
+  /* fill: none; */
+  stroke: #fff;
+  stroke-width: 4;
+  stroke-linecap: round;
 }
-.body-part
-{
-    display: none;
+.body-part {
+  display: none;
 }
