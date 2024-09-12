@@ -8,8 +8,8 @@ const finalMessage = document.getElementById("final-message");
 const words = ["application", "programming", "interface", "wizard"];
 
 const selecteWord = words[Math.floor(Math.random() * words.length)];
-console.log( selecteWord); //string
-const x = selecteWord.split(" ");
+console.log(selecteWord); //string
+const x = selecteWord.split("");
 console.log(x);
 console.log(typeof x);
 
@@ -21,10 +21,21 @@ const wrongLetters = [];
 
 function displayWords() {
 
-    word.innerHTML = `${selecteWord.split('').map(letter => `<div class='letter'>${correctLetters.includes(letter) ? letter : ''}</div>`).join()}`
+    word.innerHTML = `${selecteWord.split('').map(letter => `<div class='letter'>${correctLetters.includes(letter) ? letter : ''}</div>`).join('')}`
 
- 
+    // console.log(word.innerText);
+
+    const innerWord = word.innerText.replace(/\n/g, '');
+    console.log(innerWord, word.innerText);
+
+    if (innerWord === selecteWord) {
+        finalMessage.innerText = 'Cngratulations! You won'
+        popup.style.display = 'flex';
+
+    }
+
 }
 
 
 displayWords();
+
