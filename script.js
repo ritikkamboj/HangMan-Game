@@ -15,7 +15,7 @@ console.log(typeof x);
 
 console.log(selecteWord);
 
-const correctLetters = [...selecteWord];
+const correctLetters = [];
 console.log(correctLetters)
 const wrongLetters = [];
 
@@ -35,7 +35,52 @@ function displayWords() {
     }
 
 }
+function updateWrongLettersEl() {
+    console.log('update wrong');
 
+}
+function showNotification() {
+    // console.log();
+    notification.classList.add('show');
+
+    setTimeout(() => {
+        notification.classList.remove('show');
+    }, 2000);
+
+}
+
+window.addEventListener('keydown', e => {
+    let key = e.key;
+    console.log(key.charCodeAt(0));
+    if (key.charCodeAt(0) >= 65 && key.charCodeAt(0) <= 90) {
+        const letter = e.key;
+
+        if (selecteWord.includes(letter)) {
+            if (!correctLetters.includes(letter)) {
+                correctLetters.push(letter);
+
+                displayWords();
+            }
+            else {
+                showNotification();
+            }
+        }
+        else {
+            if (!wrongLetters.includes(letter)) {
+                wrongLetters.push(letter);
+
+                updateWrongLettersEl();
+
+            }
+            else {
+                showNotification();
+            }
+
+        }
+    }
+
+
+})
 
 displayWords();
 
