@@ -95,42 +95,38 @@ h1 {
   justify-content: center;
 }
 
-.popup{
-    background: #29806b;
-    border-radius: 5px;
-    box-shadow: 0 15px 10px 3px rgba(0,0,0,0.1);
-    padding: 20px;
-    text-align: center;
+.popup {
+  background: #29806b;
+  border-radius: 5px;
+  box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
 }
-.popup .play-btn
-{
-    cursor: pointer;
-    margin : 20px 0 0 0;
-    border: 0;
-    background-color: #fff;
-    color: #29806b;
-    padding: 5px 12px;
-    font-weight: bold;
+.popup .play-btn {
+  cursor: pointer;
+  margin: 20px 0 0 0;
+  border: 0;
+  background-color: #fff;
+  color: #29806b;
+  padding: 5px 12px;
+  font-weight: bold;
 }
-.popup .play-btn:active
-{
-    transform: scale(0.98);
+.popup .play-btn:active {
+  transform: scale(0.98);
 }
-.popup .play-btn:focus{
+.popup .play-btn:focus {
   outline: 0;
 }
 
-.notification-container
-{
-    background-color: rgba(0,0,0,0.3);
-    position: absolute;
-    border-radius: 10px 10px 0 0 ;
-    padding: 5px 12px;
-    bottom:-70px;
-    transition: transform 0.3s ease-in-out;
+.notification-container {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  border-radius: 10px 10px 0 0;
+  padding: 5px 12px;
+  bottom: -70px;
+  transition: transform 0.3s ease-in-out;
 }
 
-.notification-container.show
-{
-    transform: translateY(-70px);
+.notification-container.show {
+  transform: translateY(-70px);
 }

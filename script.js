@@ -52,7 +52,7 @@ function showNotification() {
 window.addEventListener('keydown', e => {
     let key = e.key;
     console.log(key.charCodeAt(0));
-    if (key.charCodeAt(0) >= 65 && key.charCodeAt(0) <= 90) {
+    if (key.charCodeAt(0) >= 65 && key.charCodeAt(0) <= 122) {
         const letter = e.key;
 
         if (selecteWord.includes(letter)) {
