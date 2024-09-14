@@ -4,16 +4,19 @@ const popup = document.getElementById("popup-container");
 const notification = document.getElementById("notification-container");
 const playAgain = document.getElementById("play-again");
 const finalMessage = document.getElementById("final-message");
+const bodyParts = Array.from(document.querySelectorAll('.body-part'));
+console.log(bodyParts);
+
 
 const words = ["application", "programming", "interface", "wizard"];
 
-const selecteWord = words[Math.floor(Math.random() * words.length)];
-console.log(selecteWord); //string
-const x = selecteWord.split("");
+let selectedWord = words[Math.floor(Math.random() * words.length)];
+console.log(selectedWord); //string
+const x = selectedWord.split("");
 console.log(x);
 console.log(typeof x);
 
-console.log(selecteWord);
+console.log(selectedWord);
 
 const correctLetters = [];
 console.log(correctLetters)
@@ -21,14 +24,14 @@ const wrongLetters = [];
 
 function displayWords() {
 
-    word.innerHTML = `${selecteWord.split('').map(letter => `<div class='letter'>${correctLetters.includes(letter) ? letter : ''}</div>`).join('')}`
+    word.innerHTML = `${selectedWord.split('').map(letter => `<div class='letter'>${correctLetters.includes(letter) ? letter : ''}</div>`).join('')}`
 
     // console.log(word.innerText);
 
     const innerWord = word.innerText.replace(/\n/g, '');
     console.log(innerWord, word.innerText);
 
-    if (innerWord === selecteWord) {
+    if (innerWord === selectedWord) {
         finalMessage.innerText = 'Cngratulations! You won'
         popup.style.display = 'flex';
 
@@ -37,6 +40,31 @@ function displayWords() {
 }
 function updateWrongLettersEl() {
     console.log('update wrong');
+    wrongLettersEl.innerHTML = `${wrongLetters.length > 0 ? `<p>Wrong Letters </p>` : ''}
+    
+    ${wrongLetters.map(letter => `<span>${letter}</span>`)}
+    `;
+
+    bodyParts.forEach((part, index) => {
+        console.log(part);
+
+        const errors = wrongLetters.length;
+        if (index < errors) {
+            console.log('jai baabe ki');
+
+            part.style.display = 'block';
+
+        }
+        else {
+            part.style.display = 'none';
+        }
+    })
+
+    if (wrongLetters.length === bodyParts.length) {
+        finalMessage.innerText = `Unfortunately You lost `;
+        popup.style.display = 'flex';
+    }
+
 
 }
 function showNotification() {
@@ -55,7 +83,7 @@ window.addEventListener('keydown', e => {
     if (key.charCodeAt(0) >= 65 && key.charCodeAt(0) <= 122) {
         const letter = e.key;
 
-        if (selecteWord.includes(letter)) {
+        if (selectedWord.includes(letter)) {
             if (!correctLetters.includes(letter)) {
                 correctLetters.push(letter);
 
@@ -80,6 +108,18 @@ window.addEventListener('keydown', e => {
     }
 
 
+});
+
+playAgain.addEventListener('click', () => {
+
+    correctLetters.splice(0);
+    wrongLetters.splice(0);
+
+    selectedWord = words[Math.floor(Math.random() * words.length)];
+    displayWords();
+    updateWrongLettersEl();
+
+    popup.style.display = 'none'
 })
 
 displayWords();
